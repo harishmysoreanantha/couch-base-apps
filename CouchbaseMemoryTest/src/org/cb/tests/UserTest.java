@@ -57,8 +57,8 @@ public class UserTest {
 		// LOG.debug("=====================Process Started=========================");
 
 		try {
-//			Thread writeThread = new Thread(new WriteService());
-//			writeThread.start();
+			Thread writeThread = new Thread(new WriteService());
+			writeThread.start();
 
 			
 			Thread readThread = new Thread(new ReadService());
