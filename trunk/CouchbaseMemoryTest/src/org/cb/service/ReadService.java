@@ -19,43 +19,46 @@ public class ReadService implements Runnable {
 
 	public void run() {
 
-		try {
-			Thread.sleep(0);
-
-			LOG.debug("Read Process Started at : " + new java.util.Date()
-					+ "\n\n");
-			long startTime = System.currentTimeMillis();
+//		try {
+//			Thread.sleep(0);
+//
+//			LOG.debug("Read Process Started at : " + new java.util.Date()
+//					+ "\n\n");
+//			long startTime = System.currentTimeMillis();
 			readDocuments();
-			long endTime = System.currentTimeMillis();
-
-			long elapsedTime = endTime - startTime;
-
-			LOG.debug("Read Process Ended at : " + new java.util.Date()
-					+ "\n\n");
-
-			LOG.debug("Total Time Elapse for Reading " + elapsedTime
-					+ " Seconds");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//			long endTime = System.currentTimeMillis();
+//
+//			long elapsedTime = endTime - startTime;
+//
+//			LOG.debug("Read Process Ended at : " + new java.util.Date()
+//					+ "\n\n");
+//
+//			LOG.debug("Total Time Elapse for Reading " + elapsedTime
+//					+ " Seconds");
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 
 	}
 
 	public void readDocuments() {
 		CouchbaseClient client = CouchbaseUtil.getClient();
-		Gson gson = new Gson();
-
-		for (int i = 1; i <= 1000000; i++) {
-
-			if (client.get(String.valueOf(i)) != null) {
-				client.delete(String.valueOf(i));
-				LOG.debug("Deleted");
-			}
-			LOG.debug("None");
-			//String gsonString = gson.toJson(client.get(String.valueOf(i)));
-			// User user = gson.fromJson(gsonString, User.class);
-			//LOG.debug(gsonString);
-		}
+		
+		
+		System.out.println("===="+client.hashCode());
+//		Gson gson = new Gson();
+//
+//		for (int i = 1; i <= 1000000; i++) {
+//
+//			if (client.get(String.valueOf(i)) != null) {
+//				client.delete(String.valueOf(i));
+//				LOG.debug("Deleted");
+//			}
+//			LOG.debug("None");
+//			//String gsonString = gson.toJson(client.get(String.valueOf(i)));
+//			// User user = gson.fromJson(gsonString, User.class);
+//			//LOG.debug(gsonString);
+//		}
 
 		CouchbaseUtil.closeClient();
 	}
