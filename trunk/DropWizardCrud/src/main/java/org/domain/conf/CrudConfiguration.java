@@ -1,8 +1,5 @@
 package org.domain.conf;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yammer.dropwizard.config.Configuration;
 
 public class CrudConfiguration extends Configuration {

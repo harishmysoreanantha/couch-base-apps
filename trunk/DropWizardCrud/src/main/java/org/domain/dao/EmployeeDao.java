@@ -1,8 +1,9 @@
 package org.domain.dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import net.spy.memcached.internal.OperationFuture;
 
 import org.domain.model.Employee;
 
@@ -28,7 +29,7 @@ public class EmployeeDao {
 
 		List<Employee> list = new ArrayList<Employee>();
 		Gson gson = new Gson();
-		View view = client.getView("", "");
+		View view = client.getView("employees", "get_all");
 		Query query = new Query();
 		query.setIncludeDocs(true);
 
@@ -42,13 +43,21 @@ public class EmployeeDao {
 		return list;
 	}
 
-	public Employee delete(int id) {
-		return null;
+	public boolean delete(int id) {
+
+		OperationFuture<Boolean> operationFuture = client.delete(String
+				.valueOf(id));
+		return operationFuture.getStatus().isSuccess() ? true : false;
+
 	}
 
 	public Employee findById(int id) {
+		Employee employee = null;
+		Gson gson = new Gson();
+		Object object = client.get(String.valueOf(id));
 
-		return null;
+		return (object != null) ? employee = gson.fromJson(object.toString(),
+				Employee.class) : employee;
 	}
 
 }

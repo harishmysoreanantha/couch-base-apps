@@ -27,10 +27,7 @@ public class App extends Service<CrudConfiguration> {
 
 	@Override
 	public void run(CrudConfiguration conf, Environment env) throws Exception {
-//		List<URI> nodes = new ArrayList<URI>();
-//		nodes.add(URI.create(conf.url));
-//		CouchbaseClient client = new CouchbaseClient(nodes, conf.bucket, conf.password); 
-//		
+		
 		env.addResource(new EmployeeResource());
 
 	}

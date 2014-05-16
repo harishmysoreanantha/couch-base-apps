@@ -19,11 +19,11 @@ public class EmployeeResource {
 	@Produces(value = MediaType.TEXT_PLAIN)
 	public String createEmployees() {
 
-		Employee employee = new Employee("emp", 666, "fff", 100);
-		Employee employee1 = new Employee("emp", 777, "ggg", 200);
-		Employee employee2 = new Employee("emp", 888, "hhh", 300);
-		Employee employee3 = new Employee("emp", 999, "iii", 400);
-		Employee employee4 = new Employee("emp", 1010, "jjj", 500);
+		Employee employee = new Employee("emp", 1011, "kkk", 600);
+		Employee employee1 = new Employee("emp", 1012, "lll", 700);
+		Employee employee2 = new Employee("emp", 1013, "mmm", 800);
+		Employee employee3 = new Employee("emp", 1014, "nnn", 900);
+		Employee employee4 = new Employee("emp", 1015, "ooo", 1010);
 
 		EmployeeDao dao = new EmployeeDao();
 		dao.create(employee);
@@ -49,9 +49,9 @@ public class EmployeeResource {
 	public String deleteEmployee(@PathParam("id") int id) {
 
 		EmployeeDao dao = new EmployeeDao();
-		Employee employee = dao.delete(id);
+		boolean employee = dao.delete(id);
 
-		return (employee != null) ? "Employee Deleted"
+		return (employee == true) ? "Employee Deleted"
 				: "Employee Not Available";
 	}
 
