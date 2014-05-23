@@ -60,4 +60,49 @@ public class EmployeeDao {
 				Employee.class) : employee;
 	}
 
+	public String findRank(int id) {
+		Employee employee = null;
+		Gson gson = new Gson();
+
+		String empId = (String) client.get(String.valueOf(id));
+
+		if (empId == null) {
+			return "Employee Not Found !";
+		}
+		employee = gson.fromJson(empId, Employee.class);
+
+		View view = client.getView("employees", "get_rank_by_salary");
+		Query query = new Query();
+		query.setIncludeDocs(true);
+		query.setRangeStart(Double.toString(Double.MAX_VALUE));
+		query.setRangeEnd(Double.toString(employee.getSalary()));
+		query.setDescending(true);
+		query.setReduce(true);
+
+		ViewResponse viewResponse = client.query(view, query);
+
+		String rank = null;
+		for (ViewRow row : viewResponse) {
+			rank = row.getValue();
+		}
+
+		return "Employee Rank Based on Salary : " + rank;
+	}
+
+	public String getSumOfSalaries() {
+
+		String sumOfSalaries = null;
+		View view = client.getView("employees", "get_sum_of_sal_of_employees");
+		Query query = new Query();
+		query.setIncludeDocs(true);
+
+		ViewResponse response = client.query(view, query);
+
+		for (ViewRow row : response) {
+			sumOfSalaries = row.getValue();
+		}
+
+		return sumOfSalaries;
+	}
+
 }

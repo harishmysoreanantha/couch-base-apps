@@ -66,4 +66,25 @@ public class EmployeeResource {
 
 	}
 
+	@GET
+	@Path("/rank/{id}")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public String findRank(@PathParam("id") int id) {
+
+		EmployeeDao dao = new EmployeeDao();
+
+		return dao.findRank(id);
+	}
+
+	@GET
+	@Path("/salsum")
+	@Produces(value = MediaType.APPLICATION_JSON)
+	public String getSumOfSalaries() {
+
+		EmployeeDao employeeDao = new EmployeeDao();
+
+		return "The Sum of All Salaries of Employees : "
+				+ employeeDao.getSumOfSalaries();
+	}
+
 }
