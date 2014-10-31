@@ -61,8 +61,8 @@ public class UserTest {
 			writeThread.start();
 
 			
-			Thread readThread = new Thread(new ReadService());
-			readThread.start();
+//			Thread readThread = new Thread(new ReadService());
+//			readThread.start();
 
 			// CouchbaseUtil.closeClient();
 

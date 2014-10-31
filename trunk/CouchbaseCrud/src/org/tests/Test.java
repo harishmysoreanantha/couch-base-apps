@@ -1,6 +1,8 @@
 package org.tests;
 
 import org.dao.UserDao;
+import org.domain.Address;
+import org.domain.User;
 import org.util.CouchbaseUtil;
 
 public class Test {
@@ -9,12 +11,12 @@ public class Test {
 
 		UserDao userDao = new UserDao();
 
-		// Address address = new Address("address", "Bangalore", "India");
-		// User user = new User("user", 111, "Sudarsan", "Ambatipudi", "male",
-		// "asudarsan@sapient.com",
-		// address);
-		//
-		// userDao.saveOrUpdate(user);
+		 Address address = new Address("address", "Bangalore", "India");
+		 User user = new User("user", 111, "Sudarsan", "Ambatipudi", "male",
+		 "asudarsan@sapient.com",
+		 address);
+		
+		 userDao.saveOrUpdate(user);
 		//
 		// System.out.println(userDao.findById(111));
 

@@ -12,6 +12,8 @@ public class Test {
 	public static void main(String[] args) {
 
 		CouchbaseClient client = CouchbaseUtil.getClient();
+		
+		
 
 		client.asyncGet("111").addListener(new GetCompletionListener() {
 

@@ -43,6 +43,8 @@ public class ElasticResource {
 		List<Object> objects = new ArrayList<Object>();
 
 		CouchbaseDAO couchbaseDAO = new CouchbaseDAOImpl();
+		
+		
 		ClientConfig clientConfig = new DefaultClientConfig();
 		Client client = Client.create(clientConfig);
 		WebResource resource = client.resource(getElasticURI(query));
@@ -53,6 +55,8 @@ public class ElasticResource {
 					MediaType.APPLICATION_JSON).get(String.class));
 			
 			JSONObject hitsObj = jsonObject.getJSONObject("hits");
+			
+			System.out.println(hitsObj);
 			JSONArray hitsArr = hitsObj.getJSONArray("hits");
 
 			ids = new String[hitsArr.length()];
