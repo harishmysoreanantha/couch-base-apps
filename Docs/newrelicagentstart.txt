@@ -1,0 +1,1 @@
+java -javaagent:D:/newrelic/newrelic.jar -jar D:/newrelicapp-0.0.1-SNAPSHOT.jar start

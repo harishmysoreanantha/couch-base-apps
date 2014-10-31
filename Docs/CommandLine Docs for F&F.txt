@@ -1,0 +1,6 @@
+Command Line Argument
+==================
+
+1. selenium bns ie   <package> <module> <countryCode>
+
+2.   selenium/atg myaccount/bns/checkout uk/ie/pl

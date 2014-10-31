@@ -1,0 +1,20 @@
+	try {
+			HttpFuture<View> view = CLIENT.asyncGetView(
+					designDocument.getName(), PricingViews.GET_ALL);
+			if (view.getStatus().isSuccess()) {
+				Query query = new Query();
+				query.setIncludeDocs(true);
+				
+				System.out.println("============"+view.get().getViewName());
+				ViewResponse viewResponse = CLIENT.query(view.get(), query);
+
+				for (ViewRow viewRow : viewResponse) {
+					documentList.add(viewRow.getDocument().toString());
+				}
+			}
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
