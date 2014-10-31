@@ -1,0 +1,4 @@
+Isuues
+============
+
+1. GuestAddsPaymentCardOnCheckout === Line Number 166 === Hard Coding

@@ -1,0 +1,17 @@
+sapientcloud@gmail.com
+Sapient123
+
+Domain/NameSapce : sapedomain
+
+URL:http://todo-sapedomain.rhcloud.com/
+
+HAproxy Restart Command
+=======================
+
+rhc cartridge-restart --cartridge haproxy -a todo
+
+
+
+
+http://mspoc-sapedomain.rhcloud.com/
+

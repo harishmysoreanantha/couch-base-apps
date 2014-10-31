@@ -1,0 +1,14 @@
+
+PROMO_CODE("Promo Code"),
+
+
+MANAGE("Manage"),
+
+
+CVV_NO("CVV_no"),
+DELIVERY_NOTE("Delivery_Note"),
+
+
+
+
+
